@@ -1,0 +1,66 @@
+{% extends 'back.html.twig' %}
+
+
+{% block body %}
+<div class="row">
+    {% for user in users %}
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center justify-content-center">
+                        <div class="col text-center mb-3">
+                            {% if user.image %}
+                                <img src="{{ asset('uploads/images/' ~ user.image) }}" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px; margin-top: 20px;">
+                            {% else %}
+                                <!-- If you want to display a default image if user has no image -->
+                                
+                            {% endif %}
+                        </div>
+                    </div>
+                    <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+                    <p class="card-text">Email: {{ user.email }}</p>
+                    <p class="card-text">Date of Birth: {{ user.dateOfBirth|date('Y-m-d') }}</p>
+                    <p class="card-text">Gender: {{ user.gender }}</p>
+                    <p class="card-text">Phone Number: {{ user.phoneNumber }}</p>
+                <div class="row mt-3">
+                        <div class="col d-flex justify-content-center align-items-center">
+                            <form action="{{ path('user_delete', {'id': user.id}) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                                <button type="submit" class="btn btn-danger btn-sm btn-icon-split mr-2">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                    <span class="text">Delete</span>
+                                </button>
+                            </form>
+                            {% if user.isStatus %}
+                                <form action="{{ path('user_unban', {'id': user.id}) }}" method="post" onsubmit="return confirm('Are you sure you want to Unban this account?');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('Unban' ~ user.id) }}">
+                                    <button type="submit" class="btn btn-success btn-sm btn-icon-split ml-2">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                                        <span class="text">unban</span>
+                                    </button>
+                                </form>
+                            {% else %}
+                                <form action="{{ path('user_ban', {'id': user.id}) }}" method="post" onsubmit="return confirm('Are you sure you want to Ban this account?');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('Ban' ~ user.id) }}">
+                                    <button type="submit" class="btn btn-success btn-sm btn-icon-split ml-2">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">bann</span>
+                                    </button>
+                                </form>
+                            {% endif %}
+                            
+                        </div>
+                    </div>
+                
+                </div>                
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
