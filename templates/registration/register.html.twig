@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+{% extends 'front.html.twig' %}
 
-<title>Register</title>
 
 {% block body %}
-    <h1>Register</h1>
+<title>Register</title>
 
     
+      <div style="display: flex; justify-content: center;">
+    <div>
+        <h1>Register</h1>
+
         {{ form_errors(registrationForm) }}
 
         {{ form_start(registrationForm) }}
@@ -23,6 +26,8 @@
 
             <button type="submit" class="btn">Register</button>
         {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}
 
 
