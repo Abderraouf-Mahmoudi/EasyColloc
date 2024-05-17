@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title> {% block title %} EasyColloc - Login {% endblock %}</title>
+  <link rel="icon" type="image" href="{{asset('uploads/images/easyColloc.png')}}">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+{% block css %}
+  <!-- Favicons -->
+  <link href="{{ asset('back/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('back/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('back/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{ asset('back/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('back/vendor/quill/quill.snow.css')}}" rel="stylesheet">
+  <link href="{{ asset('back/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
+  <link href="{{ asset('back/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{ asset('back/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ asset('back/css/style.css')}}" rel="stylesheet">
+{% endblock %}
+</head>
+
+<body>
+{% block body %}
+  
+{% endblock %}
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% block js %}
+  <!-- Vendor JS Files -->
+  <script src="{{ asset('back/vendor/apexcharts/apexcharts.min.js')}}"></script>
+  <script src="{{ asset('back/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('back/vendor/chart.js/chart.umd.js')}}"></script>
+  <script src="{{ asset('back/vendor/echarts/echarts.min.js')}}"></script>
+  <script src="{{ asset('back/vendor/quill/quill.js')}}"></script>
+  <script src="{{ asset('back/vendor/simple-datatables/simple-datatables.js')}}"></script>
+  <script src="{{ asset('back/vendor/tinymce/tinymce.min.js')}}"></script>
+  <script src="{{ asset('back/vendor/php-email-form/validate.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ asset('back/js/main.js')}}"></script>
+    {% endblock %}
+</body>
+
+</html>

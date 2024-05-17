@@ -16,6 +16,8 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class RegistrationFormType extends AbstractType
 {
@@ -45,10 +47,17 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('gender', TextType::class, [
+            ->add('gender', ChoiceType::class, [
+                'choices'  => [
+                    'Male' => 'male',
+                    'Female' => 'female',
+                    'Other' => 'other',
+                ],
+                'multiple' => false,
+                'expanded' => true,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter your gender',
+                        'message' => 'Please select your gender',
                     ]),
                 ],
             ])
